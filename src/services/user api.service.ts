@@ -21,6 +21,15 @@ let axiosInstance = axios.create({
     baseURL:"https://jsonplaceholder.typicode.com",
     headers:{'Content-Type': 'application/json'}
 });
+
+axiosInstance.interceptors.request.use(interceptedRequest => {
+    console.log(interceptedRequest)
+  interceptedRequest.headers.login = 'foo';
+  interceptedRequest.headers.password = 'bar';
+
+    return interceptedRequest;
+})
+
 const getUsers = ():Promise<AxiosResponse<IUser[]>> => {
 return axiosInstance.get('/users')
 }
