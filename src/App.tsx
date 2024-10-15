@@ -1,24 +1,42 @@
-import React, {FC} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import './App.css';
-import Character from "./components/character/Character";
-import Users from "./components/users/users";
+import IUser from "./model/IUser";
+import UserComponent from "./components/user/UserComponent";
+
 
 const App: FC = () => {
+
+    const [users, setUsers] = useState<IUser[]>([])
+
+    useEffect(() => {
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then(value => value.json())
+            .then(value => {
+                setUsers(value);
+            });
+    }, []);
+
+    const [userId, setUserId] = useState<number>(0);
+
+    const clickHandler =(id:number)=>{
+        console.log(id)
+        setUserId(id);
+    }
+
     return (
         <>
-            <Character name={'Bart'}
-            image={"https://static.simpsonswiki.com/images/thumb/6/65/Bart_Simpson.png/300px-Bart_Simpson.png"}
-        />
-
-    <Character name={'Homer'}
-    image={"https://static.simpsonswiki.com/images/b/bd/Homer_Simpson.png"}
-    />
-    <Character name={'Marge'}
-    image={"https://upload.wikimedia.org/wikipedia/uk/0/0b/Marge_Simpson.png"}>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, cum dicta dolor dolore doloremque exercitationem minus necessitatibus nostrum numquam officia officiis reiciendis repellendus repudiandae similique sit tempore ut veritatis voluptatibus?
-    </Character>
-            <hr/>
-            <Users/>
+            {
+                // users.map(({name,id}) => <div key={id}> {id} {name}</div>)
+                users.map(({email,username,name,id},index) => <UserComponent
+                    key={index}
+                    id={id}
+                    name={name}
+                    email={email}
+                    username={username}
+                    clickHandler={clickHandler}
+                />)
+            }
+            <h2>{userId}</h2>
 </>
 );
 }
