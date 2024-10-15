@@ -11,9 +11,13 @@ const App: FC = () => {
 
     useEffect(() => {
 getUsers()
+    // .then(value => {
+    //     setUsers(value);
+    // });
     .then(value => {
-        setUsers(value);
-    })
+        setUsers(value.data);
+    });
+
     }, []);
 
     const [userId, setUserId] = useState<number>(0);
