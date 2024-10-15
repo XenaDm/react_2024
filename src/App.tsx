@@ -3,11 +3,16 @@ import './App.css';
 import IUser from "./model/IUser";
 import UserComponent from "./components/user/UserComponent";
 import {getUsers} from "./services/user api.service";
+import PostsComponent from "./components/posts/PostsComponent";
+import {IPost} from "./model/IPost";
+import {getPostsOfUser} from "./services/post api.service";
 
 
 const App: FC = () => {
 
     const [users, setUsers] = useState<IUser[]>([])
+    const [posts,setPosts] = useState<IPost[]>([]);
+    const [userId,setUserId] = useState<number>(0)
 
     useEffect(() => {
 getUsers()
@@ -20,7 +25,11 @@ getUsers()
 
     }, []);
 
-    const [userId, setUserId] = useState<number>(0);
+    useEffect(()=>{
+        if (userId !== 0){
+            getPostsOfUser(userId).then(value => setPosts(value.data));
+        }
+    },[userId])
 
     const clickHandler =(id:number)=>{
         console.log(id)
@@ -40,7 +49,9 @@ getUsers()
                     clickHandler={clickHandler}
                 />)
             }
-            <h2>{userId}</h2>
+            <div>
+                <PostsComponent posts={posts}/>
+            </div>
 </>
 );
 }
