@@ -2,11 +2,13 @@ import React, {FC, useEffect, useState} from 'react';
 import './App.css';
 import IUser from "./model/IUser";
 import UserComponent from "./components/user/UserComponent";
-import {getUsers} from "./services/user api.service";
+import {getUser, getUsers} from "./services/user api.service";
 import PostsComponent from "./components/posts/PostsComponent";
 import {IPost} from "./model/IPost";
 import {getPostsOfUser} from "./services/post api.service";
 import Users from "./components/users/Users";
+import {ITodo} from "./model/Todo";
+import {getTodosOfUser} from "./services/api.service";
 
 
 const App: FC = () =>
@@ -57,15 +59,20 @@ const App: FC = () =>
 // </>
 // );
 {
-const [user, setUser] = useState<IUser | null>(null);
+const [todos, setTodos] = useState<ITodo[]>([]);
 
-    const lift = (obj:IUser) => {
-        setUser(obj);
+    const lift = (user:IUser) => {
+        getTodosOfUser(user)
+            .then((response:ITodo[]) => {
+                setTodos(response);
+            })
     }
     return(
 <div>
     <hr/>
-    {JSON.stringify(user)}
+    {
+        todos.map(todo=><div key={todo.id}>{todo.title}</div>)
+    }
     <hr/>
     <Users lift={lift}/>
 </div>
