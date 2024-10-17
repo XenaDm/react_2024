@@ -1,13 +1,24 @@
-import React from 'react';
+
 import './App.css';
-import Products from "./components/products/Products";
+import Users from "./components/users/Users";
+import {postService} from "./services/dummyjson api.services";
+import {IPost} from "./models/IPost";
+import Posts from "./components/posts/Posts";
+import {useState} from "react";
 
 function App() {
-  return (
-    <div>
-      <Products/>
+const [posts, setPosts] = useState<IPost[]>([]);
+    const lift = async (id:number) => {
+setPosts(await postService.getPostsOfUser(id));
+};
 
-    </div>
+  return (
+      <>
+        <Users lift={lift}/>
+          <hr/>
+          <Posts posts={posts}/>
+          <hr/>
+      </>
   );
 }
 

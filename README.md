@@ -1,7 +1,8 @@
-# Homework 1
-з апі https://dummyjson.com/docs/products копійнути руцями та вивести всі елементи зі всіма полями.
-структура компонентів наступна -
-App - Products - Product[]
+# Homework 2
+https://dummyjson.com/docs/users
+отримати та вивести інфу по всіх юзерах. Для запитів використовуємо axios та розносимо логіку в сервіси
+Структура компонентів : App - Users- User
+в компоненті User зробити кнопку при натсиканні на яку відбувається стейт ліфтінг ід користувача в батьківську компоненту. В батьківській компоненті вивести всі пости обраного юзера (https://dummyjson.com/docs/posts  Get all posts by user id)
 
 # Project Location
 
