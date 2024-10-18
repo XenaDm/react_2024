@@ -6,7 +6,7 @@ import FooterComponent from "../../components/footer/FooterComponent";
     return (
         <div>
             <HeaderComponent/>
-            ErrorPageErrorPage
+            Custom Error Layout
             <FooterComponent/>
             </div>
     );

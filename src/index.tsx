@@ -6,6 +6,7 @@ import MainLayout from "./layouts/MainLayout";
 import AboutPage from "./pages/about/AboutPage";
 import ContactsPage from "./pages/contacts/ContactsPage";
 import ErrorLayout from "./layouts/error/ErrorLayout";
+import SingleContactPage from "./components/contact/SingleContactPage";
 
 
 const root = ReactDOM.createRoot(
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
             {
                 path:'contacts', /*/contacts*/
                 element: <ContactsPage/>
+            },
+            {
+                path: 'contacts/:id',
+                element:<SingleContactPage/>
             },
             {
                 element:<AboutPage/>, index: true,
