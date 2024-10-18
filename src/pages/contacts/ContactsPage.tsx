@@ -1,9 +1,10 @@
 import React from 'react';
+import ContactsComponent from "./ContactsComponent";
 
 const ContactsPage = () => {
     return (
         <div>
-            ContactsPage
+            <ContactsComponent/>
         </div>
     );
 };
