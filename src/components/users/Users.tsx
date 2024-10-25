@@ -1,6 +1,6 @@
 import React, {FC, useEffect, useState} from 'react';
 import {IUser} from "../../models/IUser";
-import {userService} from "../../services/dummyjson api.services";
+import {userService} from "../../services/api.services";
 import User from "../user/User";
 
 type UsersProps = {
