@@ -1,22 +1,20 @@
 import React from 'react';
-import {Link} from "react-router-dom";
-import users from "./users/Users";
+import {NavLink} from "react-router-dom";
 
 const Menu = () => {
     return (
-        <div>
-            <ul>
-                <li>
-                    <Link to="users">users</Link>
-                </li>
-                <li>
-                    <Link to="posts">posts</Link>
-                </li>
-                <li>
-                    <Link to="comments">comments</Link>
-                </li>
-            </ul>
-        </div>
+        <ul>
+            <li>
+                <NavLink to={'users'}>Users</NavLink>
+            </li>
+            <li>
+                <NavLink to={'posts'}>Posts</NavLink>
+            </li>
+            <li>
+                <NavLink to={'comments'}>Comments</NavLink>
+
+            </li>
+        </ul>
     );
 };
 
