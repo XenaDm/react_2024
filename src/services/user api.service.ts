@@ -1,12 +1,12 @@
 import {IUser} from "../models/IUser";
-import axios from "axios";
+import axios, {AxiosResponse} from "axios";
 
 const axiosInstance = axios.create({
     baseURL: 'https://jsonplaceholder.typicode.com',
     headers: {}
 });
 
-export const userService= async (userId: number):Promise<IUser> =>{
-    const {data} = await axiosInstance.get(`/users/${userId}`);
+export const getUser= async (userId: number):Promise<AxiosResponse<IUser>> =>{
+    const {data} = await axiosInstance.get('/users/' + userId);
     return data;
 }

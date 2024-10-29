@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {IUser} from "../models/IUser";
 import {apiService} from "../services/api.service";
-import User from "../components/User";
+import UserComponent from "../components/UserComponent";
+
 
 const UsersPage = () => {
     const [users, setUsers] = useState<IUser[]>([]);
@@ -12,8 +13,11 @@ const UsersPage = () => {
     return (
         <div>
             {
-                users.map(value => <div>{value.name} <User key={value.id} item={value}/>
-                </div>)
+                users.map(value =>
+                    <div>{value.id} - {value.name}
+                        <UserComponent key={value.id} item={value}/>
+                    </div>
+                )
             }
         </div>
     );

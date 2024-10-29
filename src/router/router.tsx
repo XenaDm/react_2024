@@ -7,6 +7,7 @@ import PostsPage from "../pages/PostsPage";
 import CommentsPage from "../pages/CommentsPage";
 
 
+
 export const browserRouter = createBrowserRouter([
     {
         path: '/',
@@ -16,9 +17,6 @@ export const browserRouter = createBrowserRouter([
             {
                 path: 'users',
                 element: <UsersPage/>,
-                children: [
-
-                ],
             },
 
 
