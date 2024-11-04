@@ -3,8 +3,8 @@ import React from 'react';
 const ErrorPage = () => {
     return (
         <div>
-            ErrorErrorErrorError
-            </div>
+            ErrorErrorErrorErrorErrorError
+        </div>
     );
 };
 

@@ -1,9 +1,5 @@
 # Homework 3
-Створити сторінки та роути на них
-users
-posts
-comments
-При переході на кожну з них отримувати відповідні відповіді від джейсонплейсхолдеру та виводити всі об'єкти
+Взяти з dummyjson будь-який ендпоінт, який повертає багато об'єктів (products,carts,users etc...), та реалізувати пагінацію цих об'єктів. Крок пагінації ви визначаєте самостійно
 
 # Project Location
 
@@ -19,8 +15,15 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
   
-# Функція хелпер
+# Terminal commands
+npx kill-port 3000
+
+# Функції хелпер
 const getAll = async <T,> (endpoint:string)=>{
 const {data} = await axiosInstance.get<T>(endpoint)
 return data;
 }
+
+const [query, setQuery] = useSearchParams({page:'1'});
+const [carts, setCarts] = useState<ICart[]>([]);
+const [flag, setFlag] = useState<boolean>(false);
