@@ -1,4 +1,4 @@
-# Lesson 2 (1.fetch data, 2.state lifting, 3.services, 4.axios, 5.axios+lifting, 6.axios interceptors)
+# Lesson 5 (forms)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

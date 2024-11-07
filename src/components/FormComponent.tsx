@@ -25,15 +25,24 @@ const FormComponent = () => {
     };
     return (
             <form onSubmit={handleSubmit(customHandler)}>
-                <input type="text" placeholder={'username'} {...register('username', {
+                <label><input type="text" placeholder={'username'} {...register('username', {
                     required: {value: true, message: "username is required"},
                 })}/>
-                <input type="text" placeholder={'password'} {...register('password',{
+                    {errors.username && <div>{errors.username.message}</div>}
+                </label>
+                <label><input type="text" placeholder={'password'} {...register('password', {
                     minLength: {value: 3, message: 'too short'},
                     maxLength: {value: 6, message: 'too long'},
                 })}/>
-                <input type="number" placeholder={'age'} {...register('age')}/>
-                <button>save</button>
+                    {errors.password && <div>{errors.password.message}</div>}
+                </label>
+                <label><input type="number" placeholder={'age'} {...register('age',{
+                    min:{value: 0, message: 'too young'},
+                    max:{value: 123, message:'too old'}
+                })}/>
+                    {errors.age && <div>{errors.age.message}</div>}
+                </label>
+                    <button>save</button>
             </form>
     );
 };
