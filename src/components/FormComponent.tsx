@@ -29,19 +29,19 @@ const FormComponent = () => {
             <form onSubmit={handleSubmit(customHandler)}>
                 <div>
                     <label>
-                        <input type="text" placeholder={'username'} {...register}/>
+                        <input type="text" placeholder={'username'} {...register('username')}/>
                     {errors.username && <div>{errors.username.message}</div>}
                 </label>
                 </div>
                 <div>
                     <label>
-                        <input type="text" placeholder={'password'} {...register}/>
+                        <input type="text" placeholder={'password'} {...register('password')}/>
                     {errors.password && <div>{errors.password.message}</div>}
                 </label>
                 </div>
                 <div>
                     <label>
-                        <input type="number" placeholder={'age'} {...register}/>
+                        <input type="number" placeholder={'age'} {...register('age')}/>
                     {errors.age && <div>{errors.age.message}</div>}
                 </label></div>
                     <button disabled={!isValid}>save</button>

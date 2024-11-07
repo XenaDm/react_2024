@@ -1,9 +1,13 @@
 import Joi from "joi";
 
 export const userValidator = Joi.object({
-// username: Joi.string()
-//     // .required()
-//     .pattern(new RegExp(/^[a-z A-Z0-9]{3,30}$/)),
+username: Joi.string()
+    .required()
+    .pattern(/w{3-7}/) //^[a-z A-Z0-9]{3,30}$//
+    .messages({
+        "string.pattern.base":"you don`t match to pattern",
+        "any.required": "field is required"
+    }),
 
     password: Joi.string()
         .min(3)
