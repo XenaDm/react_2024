@@ -1,9 +1,9 @@
 import Joi from "joi";
 
 export const userValidator = Joi.object({
-username: Joi.string()
-    // .required()
-    .pattern(new RegExp(/^[a-z A-Z0-9]{3,30}$/)),
+// username: Joi.string()
+//     // .required()
+//     .pattern(new RegExp(/^[a-z A-Z0-9]{3,30}$/)),
 
     password: Joi.string()
         .min(3)
