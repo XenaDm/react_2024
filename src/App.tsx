@@ -1,29 +1,19 @@
-import React, {useEffect, useState} from 'react';
-import './App.css'
+import React, {useRef} from 'react';
+import UseRefComponentDemo2 from "./UseRefComponentDemo2";
 
-function App() {
-    let [number, setNumber] = useState<number>(0);
+const App = () => {
 
-    useEffect(() => {
-        console.log('send to server', number);
-        return () =>{
-            console.log('unconnect from server')
-        }
-    }, [number]);
-
+    const customRef = useRef<HTMLInputElement>(null);
     return (
         <div>
-<h2>{number}</h2>
-            <button onClick={() =>{
-setNumber(prevState => prevState+1)//або
-            }}>increment</button>
-            <button onClick={() =>{
-setNumber(prevState => {
-    return --prevState;
-})//або виразом
-            }}>decrement</button>
+            {/*<input ref={customRef} type="text"/>*/}
+            {/*<button onClick={()=>{*/}
+            {/*    console.log(customRef.current)*/}
+            {/*}}>click me</button>*/}
+
+            <UseRefComponentDemo2/>
         </div>
     );
-}
+};
 
 export default App;
