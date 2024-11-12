@@ -3,13 +3,16 @@ import React, {memo} from 'react';
 type MenuTypes = {
     id: number;
     someFn: ()=>void
+    links: string[];
 }
-const Menu =  memo(({id, someFn}: MenuTypes) => {
+const Menu =  memo(({id, someFn, links}: MenuTypes) => {
 
         console.log('menu build')
     return (
         <div>
-            this is menu component
+            {
+                links.map(link => (<li>{link}</li>))
+            }
         </div>
     );
 });
