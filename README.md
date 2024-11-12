@@ -1,6 +1,6 @@
-# Lesson 5 (forms)
+# Lesson 7 (hooks)
+# Hooks (short memo card)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 # Project Location
 
