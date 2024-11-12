@@ -1,6 +1,7 @@
 import React from 'react';
 
-const Routes = () => {
+const ColonelMamba = () => {
+    console.log('USA USA USA')
     return (
         <div>
             
@@ -8,4 +9,4 @@ const Routes = () => {
     );
 };
 
-export default Routes;
+export default ColonelMamba;
