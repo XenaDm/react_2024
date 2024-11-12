@@ -24,6 +24,6 @@ setNumber(prevState => {
             }}>decrement</button>
         </div>
     );
-};
+}
 
 export default App;
