@@ -1,35 +1,17 @@
-import React, {Component} from 'react';
+import React from 'react';
+import {MyContext} from "./MyContextProvider";
 
-type PropsType ={}
-type StateType ={
-    users: any[];
-    posts: string[];
-    comments: string[];
-}
-class App extends Component<PropsType, StateType> {
+function App  () {
+    return (
+        <>
 
-    constructor(props: any) {
-        super(props);
-        this.state ={users: [], posts: [], comments: []}
-    }
+            <MyContext.Provider value={{}}>
+                <A/>
+                <B/>
+            </MyContext.Provider>
 
-componentDidMount() {
-        fetch('http://jsonplaceholder.typicode.com/users')
-            .then(value => value.json())
-            .then(value => {
-                this.setState({users: value})
-            })
-}
-
-    render() {
-        return (
-            <div>
-                {
-                    this.state.users.map(user => (<div>{user.name}</div>))
-                }
-            </div>
-        );
-    }
+        </>
+    );
 }
 
 export default App;
