@@ -1,13 +1,12 @@
 import React from 'react';
-import {MyContext} from "./MyContextProvider";
+import {defaultStoreValue, MyContext} from "./MyContextProvider";
 
 function App  () {
     return (
         <>
 
-            <MyContext.Provider value={{}}>
-                <A/>
-                <B/>
+            <MyContext.Provider value={defaultStoreValue}>
+
             </MyContext.Provider>
 
         </>
