@@ -5,6 +5,10 @@ type StoreType ={
     userSlice:{
         allUsers:IUser[];
         loadUsers:(users:IUser[])=> void
+    },
+    postSlice:{
+        allPosts:any[];
+        loadPosts:(posts:any)=> void
     }
 }
 export let useStore = create<StoreType>()((set)=>{
@@ -20,7 +24,20 @@ return set(state => ({
     }
 }))
     }
-}
+},
+    postSlice:{
+    allPosts:[],
+        loadPosts:(posts)=>{
+            return set(state => {
+                 return {...state,
+                postSlice: {
+                    ...state.postSlice,
+                    allPosts: posts
+                }
+            }})
+
+        }
+    }
 
 }
 })
