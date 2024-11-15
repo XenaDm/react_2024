@@ -1,17 +1,24 @@
 import axios from "axios";
-import {IFormProps} from "../models/IFormProps";
-import {IPost} from "../models/IPost";
 
-const axiosInstance =  axios.create({
-    baseURL: 'https://jsonplaceholder.typicode.com',
-    headers: {"Content-Type":"application/json"}
+const axiosInstance = axios.create({
+    baseURL:'https://jsonplaceholder.typicode.com/',
+    headers:{"Content-Type":"application/json"}
 });
 
 export const apiService = {
-    post:{
-        savePost: async (dataFromForm: IFormProps):Promise<IPost> =>{
-const {data} = await axiosInstance.post<IPost>('/posts', dataFromForm);
-return data
+    userService:{
+        getUsers: async () =>{
+return await axiosInstance.get('users');
+        }
+    },
+    postService:{
+        getPosts: async () =>{
+return await axiosInstance.get('posts');
+        }
+    },
+    commentService:{
+        getComments: async () =>{
+return await axiosInstance.get('comments');
         }
     }
 }

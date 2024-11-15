@@ -1,5 +1,7 @@
-import {IFormProps} from "./IFormProps";
 
-export interface IPost extends IFormProps{
-    id:number
+export interface IPost {
+	userId: number;
+	id: number;
+	title: string;
+	body: string;
 }
