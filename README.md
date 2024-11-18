@@ -1,4 +1,16 @@
-# Lesson 9 (redux)
+# Lesson 10 (redux toolkit async Thunk)
+
+##### Live templates
+Д\з - Слайси в окремий файл, додати роути та сервіси,+ гіт js_demos lesson 9 
+
+--------------------------------------
+export let store = configureStore({
+reducer: {}
+});
+
+let useAppDispatch = useDispatch.withTypes<typeof  store.dispatch>();
+
+let useAppSelector = useSelector.withTypes<ReturnType<typeof store.getState>>();
 
 --------------------------------------
 
@@ -34,8 +46,6 @@ const {data} = await axiosInstance.get<T>(endpoint)
 return data;
 }
 **npx kill-port 3000** - if something is already running on port 3000
-
-
 
 # Dependencies
 * "axios"

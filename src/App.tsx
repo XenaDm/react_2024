@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
-import {loadUsers, reduceUser, useAppDispatch, useAppSelector} from "./redux/store";
+import {useAppDispatch, useAppSelector, userSliceActions} from "./redux/store";
 
 
 function App() {
-const userSliceState = useAppSelector(state => state.userSliceHimself);
+const {users, user} = useAppSelector(state => state.userPart);
 
     const dispatch = useAppDispatch();
 
@@ -11,14 +11,17 @@ const userSliceState = useAppSelector(state => state.userSliceHimself);
         fetch('https://jsonplaceholder.typicode.com/users')
             .then(value => value.json())
             .then(users => {
-                dispatch(loadUsers(users));
-                dispatch(reduceUser(1));
+                dispatch(userSliceActions.loadUsers);
+                dispatch(userSliceActions.loadUser(1))
             });
     }, [dispatch]);
     return (
         <>
             {
-                userSliceState.users.map((user) => (<div key={user.id}>{user.name}</div>))
+                users.map((user) => (<div key={user.id}>{user.name}</div>))
+            }
+            {
+                user && <div>{JSON.stringify(user)}</div>
             }
         </>
     );
